@@ -1,8 +1,9 @@
 /* jshint node: true */
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'posts',
+    podModulePrefix: 'posts/pages',    //用于设置单独的pages，类似与 boss 的 business 目录
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
