@@ -15,11 +15,11 @@ module.exports = function(defaults) {
         },
 
         lessOptions: {
+            //加在paths数组里面的路径的资源会被编译，
             paths: [
                 'app/styles/app'
             ]
         }
-
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -34,6 +34,15 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+
+    /*********************************************************************
+    使用app.import()引入的静态资源(css，js)将会被编译进对应的vender.css或者vender.js
+    ***********************************************************************/
+
+    /*********************************************************************
+    使用app.import()引入的其他资源(less，ttf 等)将会被原封不动的装入dist/目录中
+    ***********************************************************************/
+  
 
   return app.toTree();
 };
