@@ -5,10 +5,13 @@ export default Ember.Controller.extend({
 
     actions: {
         login(){
-            let userAccount = $('#userName').val();
-            let userPwd = $('#userPwd').val();
-            console.log(userAccount);
-            console.log(userPwd);
+            let userAccount = $('#userName').val().trim();
+            let userPwd = $('#userPwd').val().trim();
+            if(userAccount && userPwd) {
+
+            } else {
+
+            }
         }
 
     }

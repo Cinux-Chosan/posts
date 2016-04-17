@@ -3,7 +3,7 @@
 module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'posts',
-    podModulePrefix: 'posts/pages',    //用于设置单独的pages，类似与 boss 的 business 目录
+    podModulePrefix: 'posts/pages',    //宸ヤ綔鐩綍锛岀被浼间笌boss鐨刡usiness
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
