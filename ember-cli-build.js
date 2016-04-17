@@ -38,6 +38,7 @@ module.exports = function(defaults) {
     /*********************************************************************
     使用app.import()引入的静态资源(css，js)将会被编译进对应的vender.css或者vender.js
     ***********************************************************************/
+    app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
 
     /*********************************************************************
     使用app.import()引入的其他资源(less，ttf 等)将会被原封不动的装入dist/目录中
