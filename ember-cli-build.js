@@ -38,7 +38,16 @@ module.exports = function(defaults) {
     /*********************************************************************
     使用app.import()引入的静态资源(css，js)将会被编译进对应的vender.css或者vender.js
     ***********************************************************************/
+
     app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
+    app.import('vendor/bootstrap-wysiwyg/bootstrap-wysiwyg.js');
+    app.import('vendor/bootstrap-wysiwyg/index.css');
+    app.import('vendor/bootstrap-wysiwyg/external/jquery.hotkeys.js');
+    app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf', {
+        destDir: 'fonts'      //由于bootstrap中的variables.less中定义的@icon-font-path: "../fonts/"; 在不修改该变量的情况下，将字体文件编译进assets/fonts目录
+    });  //引入bootstrap的字体
+
+
 
     /*********************************************************************
     使用app.import()引入的其他资源(less，ttf 等)将会被原封不动的装入dist/目录中

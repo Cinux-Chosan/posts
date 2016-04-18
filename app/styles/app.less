@@ -1,13 +1,10 @@
 @import '../bower_components/bootstrap/less/bootstrap';
-
-
 @import 'login';
-
+@import 'rich-text-editor';
 
 html, body{
   height: 100%;
 }
-
 
 .w600px{
   width: 600px !important;
@@ -24,19 +21,27 @@ html, body{
 }
 
 .w100px{
-  width: 100% !important;
+  width: 100px !important;
 }
 
 .w100p{
   width: 100% !important;
 }
 
+.h100p{
+  height: 100% !important;
+}
+
+.h100px{
+  height: 100px !important;
+}
+
 .mt20px{
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
 
 .p20px{
-  padding: 20px;
+  padding: 20px !important;
 }
 
 .auto-margin{
@@ -56,5 +61,32 @@ html, body{
 }
 
 .text-bold{
-  font-weight: bold;
+  font-weight: bold !important;
+}
+
+.opacity0{
+  opacity: 0 !important;
+}
+
+.borderRadius4px{
+  border-radius: 4px;
+}
+
+.top0{
+  top: 0 !important;
+}
+
+.left0{
+  left: 0 !important;
+}
+
+.pos-abs{
+  position: absolute !important;
+}
+
+.cur-pointer{
+  cursor: pointer !important;
+  &:hover{
+    cursor: pointer !important;
+  }
 }
