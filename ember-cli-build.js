@@ -7,7 +7,7 @@ module.exports = function(defaults) {
         // Add options here
         minifyJS: {
             //压缩js
-            enabled: true  
+            enabled: false
         },
         minifyCSS: {
             //压缩css
@@ -39,10 +39,19 @@ module.exports = function(defaults) {
     使用app.import()引入的静态资源(css，js)将会被编译进对应的vender.css或者vender.js
     ***********************************************************************/
 
+    //js
     app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
     app.import('vendor/bootstrap-wysiwyg/bootstrap-wysiwyg.js');
-    app.import('vendor/bootstrap-wysiwyg/index.css');
+    app.import('vendor/loadash/lodash/dist/lodash.js');
+    app.import('vendor/myPosts.js');
+    app.import('vendor/jquery-toastmessage-plugin/src/main/javascript/jquery.toastmessage.js');
+
+    //css
     app.import('vendor/bootstrap-wysiwyg/external/jquery.hotkeys.js');
+    app.import('vendor/jquery-toastmessage-plugin/src/main/resources/css/jquery.toastmessage.css');
+
+
+    //ttf
     app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf', {
         destDir: 'fonts'      //由于bootstrap中的variables.less中定义的@icon-font-path: "../fonts/"; 在不修改该变量的情况下，将字体文件编译进assets/fonts目录
     });  //引入bootstrap的字体

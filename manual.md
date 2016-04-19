@@ -1,3 +1,10 @@
+## ember
+> command line
+>> ember b 和 ember s 生成的是开发环境的代码，带有--prod参数生成的是生产环境代码。开发环境有ember-cli-live-reload.js  ， 生产环境没有
+> editor
+>> 可以尝试引入xheditor
+
+
 ## icon
 > <i class="iconfont icon-XXX">...</i>
 

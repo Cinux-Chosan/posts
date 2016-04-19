@@ -1,6 +1,7 @@
 import Ember from 'ember';
 import Resolver from './resolver';
 import loadInitializers from 'ember-load-initializers';
+import LazyLoader from 'posts/mixins/lazy-loader';
 import config from './config/environment';
 
 let App;
@@ -12,6 +13,9 @@ App = Ember.Application.extend({
   podModulePrefix: config.podModulePrefix,
   Resolver
 });
+
+App.LazyLoader = LazyLoader;
+window.APP = App;
 
 loadInitializers(App, config.modulePrefix);
 
