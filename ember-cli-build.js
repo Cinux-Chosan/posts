@@ -11,7 +11,7 @@ module.exports = function(defaults) {
         },
         minifyCSS: {
             //压缩css
-            enabled: true
+            enabled: false
         },
 
         lessOptions: {
@@ -41,21 +41,26 @@ module.exports = function(defaults) {
 
     //js
     app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
+    app.import('vendor/bootstrap-wysiwyg/external/jquery.hotkeys.js');
     app.import('vendor/bootstrap-wysiwyg/bootstrap-wysiwyg.js');
-    app.import('vendor/loadash/lodash/dist/lodash.js');
+    app.import('vendor/lodash/lodash/dist/lodash.js');
     app.import('vendor/myPosts.js');
     app.import('vendor/jquery-toastmessage-plugin/src/main/javascript/jquery.toastmessage.js');
 
     //css
-    app.import('vendor/bootstrap-wysiwyg/external/jquery.hotkeys.js');
-    app.import('vendor/jquery-toastmessage-plugin/src/main/resources/css/jquery.toastmessage.css');
 
+    app.import('vendor/jquery-toastmessage-plugin/src/main/resources/css/jquery.toastmessage.css');
+    app.import('vendor/Font-Awesome-3.2.1/css/font-awesome.min.css');  //usage :http://www.bootcss.com/p/font-awesome/
+    app.import('vendor/animate.css/animate.min.css');
 
     //ttf
     app.import('bower_components/bootstrap/fonts/glyphicons-halflings-regular.ttf', {
         destDir: 'fonts'      //由于bootstrap中的variables.less中定义的@icon-font-path: "../fonts/"; 在不修改该变量的情况下，将字体文件编译进assets/fonts目录
     });  //引入bootstrap的字体
 
+    app.import('vendor/Font-Awesome-3.2.1/font/fontawesome-webfont.ttf', {
+        destDir: 'fonts'
+    });
 
 
     /*********************************************************************

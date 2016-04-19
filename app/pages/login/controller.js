@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-
-
     actions: {
         login(){
             let userAccount = $('#userName').val().trim();
@@ -12,6 +10,12 @@ export default Ember.Controller.extend({
             } else {
 
             }
+        },
+        didInsert() {
+            let $logo = $('.login-logo');
+            window.animateCss($logo,'slideInDown').then(function(data) {
+                window.animateCss(data, 'rubberBand');
+            });
         }
 
     }
