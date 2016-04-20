@@ -1,11 +1,11 @@
 @import '../../bower_components/bootstrap/less/bootstrap';
 //@import '../../vendor/Font-Awesome-3.2.1/less/font-awesome';
 
-
+@import "index";
 @import 'login';
 @import 'rich-text-editor';
 
-html, body{
+html, body, body > .ember-view{
   height: 100%;
 }
 
@@ -47,7 +47,7 @@ html, body{
   padding: 20px !important;
 }
 
-.auto-margin{
+.margin-auto{
   margin: auto !important;
 }
 
@@ -69,6 +69,26 @@ html, body{
 
 .opacity0{
   opacity: 0 !important;
+}
+
+.margin0{
+  margin: 0 !important;
+}
+
+.padding0{
+  padding: 0 !important;
+}
+
+.padding60px{
+  padding: 60px !important;
+}
+
+.pt60px {
+  padding-top: 60px !important;
+}
+
+.pb60px {
+  padding-bottom: 60px !important;
 }
 
 .borderRadius4px{
@@ -102,3 +122,4 @@ html, body{
 .ff-sans-serif{
   font-family:Arial,Verdana,Sans-serif !important;
 }
+

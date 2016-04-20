@@ -1,7 +1,42 @@
-<h1>index</h1>
+<div class="jumbotron h100p w100p page-index margin0 padding0">
+    <div class="color-overlay">
+        <div class="margin-auto">
+            <div class="navbar navbar-logo">
+                <div class="container">
+
+                    <div class="row pt60px pb60px">
+                        <div class="col-sm-4 col-md-3 col-xs-12">
+                            <div class="navbar-header">
+                                <div class="logo">
+                                    <img class="img-fluid" src="../images/Chosan-moonboat-white-bktransparent-61px.png" alt="logo" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8 col-md-9 col-xs-12">
+                            <ul class="nav navbar-nav pull-right">
+                                <li class="nav-item">
+                                    <a class="nav-link">Blog</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">Other</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link">About</a>
+                                </li>
+
+                            </ul>
+                        </div>
 
 
-{{#link-to 'login'}}login{{/link-to}}
-{{#link-to 'edit'}}edit{{/link-to}}
+                    </div>
 
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{{view-like didInsert=(action 'didInsert')}}
 {{outlet}}
