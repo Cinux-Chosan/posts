@@ -35,19 +35,39 @@ window.tip = function(msg, type, stayTime, sticky, closeCallback, closeText) {
 
 window.animateCss = function (selector, animationName) {
     let $selector = $(selector);
-    return new Ember.RSVP.Promise(function (resolved, rejected) {
+    return new Ember.RSVP.Promise(function (resolve, reject) {
         let  animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
         $selector.addClass('animated ' + animationName).one(animationEnd, function() {
             $(this).removeClass('animated ' + animationName);
             if(animationName) {
-                resolved($selector);    //resolved的参数会作为参数传递给后面的then中函数的参数
+                resolve($selector);    //resolved的参数会作为参数传递给后面的then中函数的参数
             } else {
-                rejected(new Error('animation empty !!'));
+                reject(new Error('animation empty !!'));
             }
         });
-
     });
-
 }
 
+
+window.myGetJson = function(url, data, type) {
+    type = type || 'GET';
+    type = type.toUpperCase();
+    function handleRequest(data) {
+        if(!data.status) {
+            window.tip(data.msg, 'error');
+        }
+        return data;
+    }
+    Ember.$.ajaxSetup({xhrFields: {withCredentials: false}});  //withCredentials为false允许跨域
+    let promise = Ember.$.ajax({
+        type: type,
+        url: url,
+        dataType: 'json',
+        data: data
+    });
+    promise = promise.then(handleRequest);     //$.ajax返回promise对象，在handleRequest中处理出错情况
+    return new Ember.RSVP.Promise(function (resolve, reject) {
+        promise.done(resolve).fail(reject);
+    });
+}
 

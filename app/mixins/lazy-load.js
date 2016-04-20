@@ -1,6 +1,13 @@
 import Ember from 'ember';
 
 var LazyLoadMixin = Ember.Mixin.create({
+
+    init() {
+        this._super(...arguments);
+        this.set('loaded', []);
+        this.set('loading', []);
+    },
+
     lazyLoadFiles() {
         return [];
     },
@@ -77,8 +84,9 @@ var LazyLoadMixin = Ember.Mixin.create({
     }
 
 });
-LazyLoadMixin.loaded = [];
-LazyLoadMixin.loading = [];
+
+//LazyLoadMixin.loaded = [];
+//LazyLoadMixin.loading = [];
 
 window.LazyLoadMixin = LazyLoadMixin;
 
