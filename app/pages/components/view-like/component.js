@@ -1,9 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-    didInsert: null,
+    didInsertFunc: null,
     didInsertParams: [],
+    willDestroyFunc: null,
+    willDestroyParams: [],
     didInsertElement(){
-        this.get('didInsert')(this.get('didInsertParams'));
+        let didInsertFunc = this.get('didInsertFunc');
+        didInsertFunc && didInsertFunc(this.get('didInsertParams'));
+    },
+    willDestroy() {
+        let willDestroyFunc = this.get('willDestroyFunc');
+        willDestroyFunc && willDestroyFunc(this.get('willDestroyParams'));
     }
 });
