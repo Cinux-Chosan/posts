@@ -53,8 +53,30 @@
 
 
 
+## wamp server
+> phpMyAdmin
+>> 登陆密码配置 /wamp/apps/phpmyadminX.X.XX/config.inc.php
 
 
+
+## 数据库 database
+> show databases;   show tables;   describe tableName;
+
+> create database xxx ; use xxx;
+
+> create table xxx (col type [][auto_increment...][]);
+
+> drop table xxx;
+
+> PHP + Mysql
+				<?php
+        $dbc = mysqli_connect('localhost', 'root', '123456', 'posts')
+            or die('Error connect to mysql server');
+        $query = "INSERT INTO userlist (userName, userPwd) VALUES ('13340248057', 'Mailofhost*')";
+        $result = mysqli_query($dbc, $query)    //$result 只是一个资源id，mysql临时保存了查询结果，返回该结果的一个资源id，然后使用
+        mysqli_fetch_array()函数来获取一行资源
+            or die('Error querying database!');
+        mysqli_close($dbc);
 
 
 
