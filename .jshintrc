@@ -4,8 +4,8 @@
     "window",
     "-Promise",
     "$",
-    "_"
-
+    "_",
+    "Ember"
   ],
   "browser": true,
   "boss": true,
