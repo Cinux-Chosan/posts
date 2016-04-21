@@ -2,7 +2,7 @@
 # 模块设计 #
 
 ## 首页：
->> 参考 https://slimfaq.com/
+> 参考 https://slimfaq.com/
 
 ## 登陆模块：
 在提交的时候，动态设置form或者使用ajax  FormData来提交
@@ -30,5 +30,24 @@
 
 ## 通用功能模块
 > myGetJson
+
 > animateCSS
 
+
+## 数据库表格设计
+> 用户列表(userList)：
+>> userName   primary
+>> userPwd
+>> userId
+
+> 文章列表(articleList)：
+>> userId
+>> articleName
+>> articleText
+>> articleDate
+>> isStick   //是否置顶
+>> praiseNum    //被赞数
+
+> 相册列表(photoList)
+>> photoCategory   //相册分类，每个分类在总目录下面对应一个文件夹
+>> photoName    //图片名      与分类结合为服务器上的图片相对路径
