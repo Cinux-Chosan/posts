@@ -68,16 +68,19 @@
 
 > drop table xxx;
 
+> delete from tableName where ...
+
 > PHP + Mysql
 				<?php
-        $dbc = mysqli_connect('localhost', 'root', '123456', 'posts')
+        $dbc = mysqli_connect('localhost', 'root', '123456', 'posts') </br>
             or die('Error connect to mysql server');
-        $query = "INSERT INTO userlist (userName, userPwd) VALUES ('13340248057', 'Mailofhost*')";
+        $query = "INSERT INTO userlist (userName, userPwd) VALUES ('13340248057', 'Mailofhost*')";   </br>
         $result = mysqli_query($dbc, $query)    //$result 只是一个资源id，mysql临时保存了查询结果，返回该结果的一个资源id，然后使用
-        mysqli_fetch_array()函数来获取一行资源
-            or die('Error querying database!');
+        mysqli_fetch_array()函数来获取一行资源    </br>
+            or die('Error querying database!');   </br>
         mysqli_close($dbc);
 
+>>  $row = mysqli_fetch_array($result);
 
 
 
