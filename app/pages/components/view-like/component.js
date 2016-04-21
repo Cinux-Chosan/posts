@@ -7,10 +7,10 @@ export default Ember.Component.extend({
     willDestroyParams: [],
     didInsertElement(){
         let didInsertFunc = this.get('didInsertFunc');
-        didInsertFunc && didInsertFunc(this.get('didInsertParams'));
+        return didInsertFunc && (didInsertFunc)(this.get('didInsertParams'));
     },
     willDestroy() {
         let willDestroyFunc = this.get('willDestroyFunc');
-        willDestroyFunc && willDestroyFunc(this.get('willDestroyParams'));
+        return willDestroyFunc && willDestroyFunc(this.get('willDestroyParams'));
     }
 });

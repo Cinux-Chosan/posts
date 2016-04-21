@@ -21,5 +21,16 @@
     <script src="assets/posts.js"></script>
 
     {{content-for "body-footer"}}
+
+    <!-- 加载webfont ； usage: http://www.youziku.com/onlinefont/index -->
+    <script type="text/javascript" src="http://api.youziku.com/wwwroot/js/g_webfont.min.js"></script>
+    <script type="text/javascript">
+      WebFont.load({
+        custom: {
+          urls: ['http://api.youziku.com/webfont/CSS/57183f1df629d80ed8fbe7a8']
+        }
+      });
+    </script>
+
   </body>
 </html>

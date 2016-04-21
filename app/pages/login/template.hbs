@@ -7,7 +7,7 @@
 
     <div class="login-body">
         <div class="container mt20px">
-            <form class="form-horizontal maxW400px margin-auto">
+            <form class="form-horizontal maxW400px margin-auto" method="post" action="login.php" onsubmit="return false;">
                 <div class="form-group">
                     <label for="userName" class="control-label col-sm-5">Account:</label>
                     <div class="col-sm-7">
@@ -20,7 +20,7 @@
                         <input type="password" class="form-control" id="userPwd" placeholder="password"/>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary pull-right text-bold" {{action 'login'}}>Sign in</button>
+                <button type="submit" class="btn btn-primary pull-right text-bold">Sign in</button>
             </form>
         </div>
     </div>

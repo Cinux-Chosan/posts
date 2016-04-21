@@ -6,7 +6,7 @@ module.exports = function (environment) {
     podModulePrefix: 'posts/pages',    //工作目录，类似与boss的business
     environment: environment,
     baseURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',  //auto is default     //hash 会在url中带上#号，而auto会隐藏该#号
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

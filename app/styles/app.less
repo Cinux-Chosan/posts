@@ -9,6 +9,10 @@ html, body, body > .ember-view{
   height: 100%;
 }
 
+.mb50px{
+  margin-bottom: 50px !important;
+}
+
 .w600px{
   width: 600px !important;
 }
@@ -138,4 +142,42 @@ html, body, body > .ember-view{
 .col-center{
   left: 50%;
   transform: translateX(-50%);
+}
+
+.color-white{
+  color: #fff !important;
+}
+
+.color-white-all{
+  &, *{
+    color: #fff !important;
+  }
+}
+
+.f18px{
+  font-size: 18px !important;
+}
+
+.f16px{
+  font-size: 16px !important;
+}
+
+.unselectable{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.unselectable-all{
+  &, *{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  }
+}
+
+.nowrap{
+  white-space: nowrap;
 }
