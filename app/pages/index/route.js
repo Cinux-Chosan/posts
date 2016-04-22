@@ -8,8 +8,8 @@ export default Ember.Route.extend({
             return data;    //return value will be deliver to the next
         }).then(data=>{console.log(data);});
 */
-        window.myGetJson('http://localhost:8080/testlogin.php').then(data=>{
+/*        window.myGetJson('http://localhost:8080/testlogin.php').then(data=>{
             console.log(data);
-        });
+        });*/
     }
 });
