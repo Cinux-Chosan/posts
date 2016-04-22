@@ -5,6 +5,11 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
     var app = new EmberApp(defaults, {
         // Add options here
+
+        outputPaths: {
+            //   "C:/Users/Chosan/Documents/My FTPRush Downloads"
+
+        },
         minifyJS: {
             //压缩js
             enabled: false

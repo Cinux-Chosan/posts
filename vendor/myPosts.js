@@ -58,8 +58,9 @@ window.myGetJson = function(url, data, type) {
         }
         return data;
     }
-    Ember.$.ajaxSetup({xhrFields: {withCredentials: false}});  //withCredentials为false允许跨域
+    Ember.$.ajaxSetup({xhrFields: {withCredentials: true}});  //withCredentials为false允许跨域
     let promise = Ember.$.ajax({
+        cache: false,
         type: type,
         url: url,
         dataType: 'json',
