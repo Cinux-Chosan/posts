@@ -45,6 +45,8 @@
 
 >> userId
 
+>> userAvatar    //用户头像
+
 
 > 文章列表(articleList)：
 >> userId

@@ -70,6 +70,21 @@
 
 > delete from tableName where ...
 
+> alter table xxx add columnName columnType
+>> 用例：alter table email_list add id int not null auto_increment first, add primary key(id)
+
+>> add column
+
+>> change column columnName colProperty
+
+>> drop column columnName
+
+>> modify column columnName colProperty
+
+> order by xxx asc, xxx desc
+
+> limit 1;   //只处理一条数据，limit用来控制操作的最大条数
+
 > PHP + Mysql
 <pre>
 				<?php
@@ -85,8 +100,23 @@
 
 
 
+## PHP
+> isset();//判断变量是否已经存在    empty();//判断变量是否为空    //粘性表单，判断是否提交  isset($_POST['submit']); 确保'submit'与按钮id同
 
+> head first page 273   image/img upload
 
+> head first page 345   header的各种用例
 
+> head first page 425   session 会话/ cookie结束
+
+> head first page 443   阅读至此
+
+> 解决跨域问题，需要给Php加上如下代码:
+>> header("Access-Control-Allow-Origin:*");
+
+> 发送json:
+>> header("Content-type: application/json");
+
+> 删除文件 unlink(filePath);
 
 

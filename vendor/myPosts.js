@@ -14,7 +14,7 @@ window.myPromise = function(data, time) {
 
 window.tip = function(msg, type, stayTime, sticky, closeCallback, closeText) {
     //usage : https://github.com/akquinet/jquery-toastmessage-plugin/wiki
-    if(!msg.trim()) {
+    if(msg && !msg.trim()) {
         return;
     } else {
         msg = '<span class="word-break ff-sans-serif">' + msg + '</span>';
