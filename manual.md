@@ -123,9 +123,28 @@
 
     header("Access-Control-Allow-Credentials: true");   //  配合ajax中{withCredentials: true}
 
+> 关闭session
+>> $_SESSION = array() 或者Array(); 设置 false, '', null都无效
+
+
 > 发送json:
 >> header("Content-type: application/json");
 
 > 删除文件 unlink(filePath);
 
 
+## nginx
+> 配置php
+>>
+     location ~ \.php$ {
+                root           php;        #php根目录
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+                fastcgi_param  SCRIPT_FILENAME  /usr/local/nginx/php$fastcgi_script_name;  #设置php目录路径，目录替换为服务器上的绝对目录，可以不与html根目录放在一起
+                include        fastcgi_params;
+            }
+
+> 重启
+>> alias nginx="/usr/local/nginx/sbin/nginx"
+
+>> nginx -s reload
