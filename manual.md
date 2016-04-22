@@ -115,13 +115,12 @@
 >> header("Access-Control-Allow-Origin:*");
 
 >> 如果跨域需要用到 __cookie__ ，则ajax中需要设置
-
-    Ember.$.ajaxSetup({xhrFields: {withCredentials: true}});  //withCredentials会跨域发送cookie，个人理解为 withCredentials:true会包含crossDomain:true;
+    Ember.$.ajaxSetup({xhrFields: {withCredentials: true}});  //withCredentials会跨域发送cookie，个人理解为 withCredentials:true会包含crossDomain:true; crossDomain与jsonp等配合
 同时php端应该设置
 
-    header('Access-Control-Allow-Origin: http://localhost');  //允许跨域，并且此处不能设置为 *
+    header('Access-Control-Allow-Origin: http://localhost');  //允许跨域来访的域名，并且此处不能设置为 *
 
-    header("Access-Control-Allow-Credentials: true");   //配合ajax中{withCredentials: true}
+    header("Access-Control-Allow-Credentials: true");   //  配合ajax中{withCredentials: true}
 
 > 发送json:
 >> header("Content-type: application/json");
