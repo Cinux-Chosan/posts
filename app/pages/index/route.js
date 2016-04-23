@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+   /* lazyLoadFiles() {
+        return ['public/xhEditor/xheditor.js'];
+    },*/
     model() {
       /*  console.log('data');
         window.myGetJson('http://rap.taobao.org/mockjsdata/2909/posts/index?').then(data => {

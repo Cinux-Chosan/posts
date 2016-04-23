@@ -137,7 +137,7 @@
 > 配置php
 >>
      location ~ \.php$ {
-                root           php;        #php根目录
+                root           php;        #}php根目录
                 fastcgi_pass   127.0.0.1:9000;
                 fastcgi_index  index.php;
                 fastcgi_param  SCRIPT_FILENAME  /usr/local/nginx/php$fastcgi_script_name;  #设置php目录路径，目录替换为服务器上的绝对目录，可以不与html根目录放在一起

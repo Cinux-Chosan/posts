@@ -23,24 +23,25 @@ var LazyLoadMixin = Ember.Mixin.create({
     _getScript(url) {
         return $.ajax({
             url,
-            dataType: 'script',
+            dataType: 'script',          // script 会被jquery自动追加到 body 后
             cache: true
         });
     },
     _doLoad(path) {
-        var filePath = path;
-        var self = this;
-        if (!LazyLoadMixin.loaded[filePath]) {
+     //   var filePath = path;
+        var filePath = (path.indexOf("http://") !== 0) ? location.origin + '/' + path : path;
+        var self = this;///////////////
+        if (!this.loaded[filePath]) {
             if (this._isJsFile(filePath)) {
-                if (LazyLoadMixin.loading[filePath]) {
-                    return LazyLoadMixin.loading[filePath];
+                if (this.loading[filePath]) {
+                    return this.loading[filePath];
                 }
                 var loadPromise = self._getScript(filePath).then(function() { // getScript is in jQuery
-                    LazyLoadMixin.loaded[filePath] = true;
-                    LazyLoadMixin.loading[filePath] = null;
+                    self.loaded[filePath] = true;
+                    self.loading[filePath] = null;
                     return true;
                 });
-                LazyLoadMixin.loading[filePath] = loadPromise;
+                self.loading[filePath] = loadPromise;
                 return loadPromise;
             } else if (this._isCssFile(filePath)) {
                 $('<link/>', {
@@ -48,7 +49,7 @@ var LazyLoadMixin = Ember.Mixin.create({
                     type: 'text/css',
                     href: filePath
                 }).appendTo('head');
-                LazyLoadMixin.loaded[filePath] = true;
+                this.loaded[filePath] = true;
                 return window.myPromise(true);
             }
         } else {
