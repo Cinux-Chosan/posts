@@ -1,11 +1,14 @@
 
 
+let isDev = false;
 
 let postsConfig = {
-    API_HOST: location.origin || 'http://boss.zbj.com'    //location.origin指向url中的域名
+    API_HOST: location.origin || 'http://www.1235.ac.cn'    //location.origin指向url中的域名
 };
 
-
+let postsDevConfig = {
+    API_HOST: 'http://localhost:8080'
+}
 
 window.myPromise = function(data, time) {
     return new Ember.RSVP.Promise(function(resolve) {
@@ -58,7 +61,8 @@ window.animateCss = function (selector, animationName) {
 
 
 window.myGetJson = function(url, data, type) {
-    url = (url.indexOf("http://") !== 0) ? postsConfig.API_HOST + url : url;
+    let config = isDev ? postsDevConfig : postsConfig;
+    url = (url.indexOf("http://") !== 0) ? config.API_HOST + '/' + url : url;
     type = type || 'GET';
     type = type.toUpperCase();
     function handleRequest(data) {

@@ -6,10 +6,15 @@ export default Ember.Controller.extend({
             let $userAccount = $('#userName').val().trim();
             let $userPwd = $('#userPwd').val().trim();
             if($userAccount && $userPwd) {
-                window.myGetJson('http://localhost:8080/login.php',{
+                window.myGetJson('login.php',{
                     userName: $userAccount,
                     userPwd: $userPwd
-                }, 'post').then(data => {console.log(data);});
+                }, 'post').then(data => {
+                    if(data.status) {
+                        window.tip('登陆成功，即将跳转');
+                        Ember.run.later(() => this.transitionToRoute('index'), 1000);
+                    }
+                });
             } else {
                 window.tip("用户名和密码不能为空！", 'error');
             }
