@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
             let $userAccount = $('#userName').val().trim();
             let $userPwd = $('#userPwd').val().trim();
             if($userAccount && $userPwd) {
-                window.myGetJson('login.php',{
+                window.myGetJson('posts/login.php',{
                     userName: $userAccount,
                     userPwd: $userPwd
                 }, 'post').then(data => {

@@ -10,6 +10,19 @@ export default Ember.Controller.extend({
         },
         willDestroy() {
 
+        },
+        submit() {
+            let title = $('#art-title').val(),
+                text = $('.article-text').val();
+            window.myGetJson('posts/addArticle.php', {
+                'articleTitle': title,
+                'articleText': text
+            }, 'post').then(data => {
+                if(data.status) {
+                    window.tip('添加成功！');
+                }
+            });
+
         }
     }
 });

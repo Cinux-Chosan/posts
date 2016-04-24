@@ -6,16 +6,17 @@
           <div class="form-group">
               <div class="input-group">
                   <span class="input-group-addon text-bold">Title</span>
-                  <input type="text" class="form-control" placeholder="输入文章标题">
+                  <input type="text" class="form-control" placeholder="输入文章标题" id="art-title">
               </div>
 
           </div>
 
 
           <div class="form-group h80p">
-              {{xh-editor bindClass="w100p h100p"}}
-
+              {{xh-editor bindClass="w100p h100p article-text"}}
           </div>
+
+          <button class="btn btn-default" {{action 'submit'}}>提交</button>
 
       </form>
 
