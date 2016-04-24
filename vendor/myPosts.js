@@ -1,6 +1,6 @@
 
 
-let isDev = false;
+let isDev = true;
 
 let postsConfig = {
     API_HOST: location.origin || 'http://www.1235.ac.cn'    //location.origin指向url中的域名
@@ -44,18 +44,60 @@ window.tip = function(msg, type, stayTime, sticky, closeCallback, closeText) {
 };
 
 
-window.animateCss = function (selector, animationName) {
-    let $selector = $(selector);
+window.animateCss = function (selector, animationName, isEnd) {
+    let isArray = $.isArray(selector),
+        $selector = isArray ? selector : $(selector);
     return new Ember.RSVP.Promise(function (resolve, reject) {
+
         let  animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        $selector.addClass('animated ' + animationName).one(animationEnd, function() {
-            $(this).removeClass('animated ' + animationName);
-            if(animationName) {
-                resolve($selector);    //resolved的参数会作为参数传递给后面的then中函数的参数
-            } else {
-                reject(new Error('animation empty !!'));
+
+        function rm(i, count, total) {
+            let fuc = function() {
+                let self = $(this);
+                self.removeClass('animated ' + animationName[i]);
+                if(isEnd) {
+                    self.addClass('hidden');
+                }
+                if(animationName) {
+                    if( (++count) === total) {
+                        resolve($selector);
+                    }
+                } else {
+                    reject(new Error('animation empty !!'));
+                }
+            };
+            return fuc;
+        }
+        if(isArray) {
+            let count = 0,
+                total = $selector.length;
+            for(let i = 0; i < total; ++i) {
+                let item = $selector[i];
+                if(item.length) {
+                    item.removeClass('hidden').addClass('animated ' + animationName[i]).one(animationEnd, rm(i, ++count, total));  //此处使用匿名函数会得到JSHint提示： don't make functions within a loop
+                } else {
+                    if(++count === total) {
+                        resolve($selector);
+                    }
+                }
             }
-        });
+        } else {
+            $selector.removeClass('hidden').addClass('animated ' + animationName).one(animationEnd, function() {
+                if(!$selector.length) {
+                    resolve($selector);
+                }
+                let self = $(this);
+                self.removeClass('animated ' + animationName);
+                if(isEnd) {
+                    self.addClass('hidden');
+                }
+                if(animationName) {
+                    resolve($selector);    //resolved的参数会作为参数传递给后面的then中函数的参数
+                } else {
+                    reject(new Error('animation empty !!'));
+                }
+            });
+        }
     });
 }
 

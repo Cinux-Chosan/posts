@@ -1,0 +1,52 @@
+<div class="page-article h100p h100p">
+    <div class="page-article-header">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-9" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" {{action 'goto' 'index'}}>Chosan</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-navbar-collapse-9">
+                    <ul class="nav navbar-nav">
+                        <li class={{if isList 'active'}}><a href="#" {{action 'goto' 'article.art_list'}}>Article List</a></li>
+                        <li class={{if isPub 'active'}}><a href="#" {{action 'goto' 'article.pub'}}>Publish</a></li>
+                        <li class={{if isOther 'active'}}><a href="#" {{action 'goto' ''}}>Link</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+
+    <div class="page-article-body">
+
+        <!-- <div class="page-article-left">
+
+				 </div>
+
+				 <div class="page-article-main">
+
+				 </div>
+
+				 <div class="page-article-right">
+
+				 </div>-->
+
+        {{outlet}}
+
+    </div>
+
+    <div class="page-article-footer">
+
+    </div>
+
+</div>
+
+

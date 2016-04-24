@@ -9,9 +9,11 @@ export default Ember.Controller.extend({
         },
 
         willDestroyFunc(someWhere) {
-            let $navbar = $('ul.nav.navbar-nav');
-            window.animateCss($navbar, 'hinge').then(() => {
+            let $navbar = $('.page-index ul.nav.navbar-nav');
+            window.animateCss($navbar, 'hinge', true).then(() => {
+                console.log('aaaa');
                 this.transitionToRoute(someWhere);
+                console.log('bbbb');
             });
         }
     }

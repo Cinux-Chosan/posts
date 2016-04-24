@@ -2,11 +2,13 @@
 //@import '../../vendor/Font-Awesome-3.2.1/less/font-awesome';
 
 @import "index";
-@import 'login';
-@import 'rich-text-editor';
+@import "login";
+@import "rich-text-editor";
+@import "article";
 
 html, body, body > .ember-view{
   height: 100%;
+  overflow: hidden;
 }
 
 .mb50px{
@@ -43,8 +45,17 @@ html, body, body > .ember-view{
   width: 50% !important;
 }
 
+.h80p{
+  height: 80% !important;
+}
 .h100p{
   height: 100% !important;
+}
+
+.h100p-all{
+  &, *{
+    height: 100% !important;
+  }
 }
 
 .h100px{
@@ -188,4 +199,16 @@ html, body, body > .ember-view{
 
 .nowrap{
   white-space: nowrap;
+}
+
+.color-overlay {
+  background: rgba(0, 0, 0, .3);
+}
+
+.opacity6{
+  opacity: .6 !important;
+}
+
+.overflow-hidden{
+  overflow: hidden !important;
 }
