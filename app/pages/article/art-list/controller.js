@@ -24,7 +24,7 @@ export default Ember.Controller.extend({
             this.set('selectedArtIndex',index);
         },
 
-        turnPage(pageData) { debugger;
+        turnPage(pageData) {
             window.myGetJson('posts/getArticleList.php', {
                 // queryStart:
                 queryStart: pageData.limit * pageData.page,

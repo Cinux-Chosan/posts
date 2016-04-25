@@ -26,7 +26,6 @@ export default Ember.Component.extend({
         },
 
         turnToPage(page) {
-            debugger
             if((page < 0) || page >= this.get('totalPage')) {
                 return;
             }
