@@ -1,14 +1,25 @@
 <div class="art-list-body h100p">
     <div class="container-fluid h100p overflow-hidden">
-        <div class="art-list-left col-sm-3 color-overlay col-sm-offset-1">
+        <div class="art-list-left col-sm-3 color-overlay col-sm-offset-1 pos-rel">
+            <ul class="list-group opacity9">
 
+                {{#each model.articleList.list as |item index|}}
+                    <a href="#" class="list-group-item list-group-item-success" {{action 'showText' index}}>
+                        {{{item.article_title}}}
+                    </a>
+                {{/each}}
 
+            </ul>
 
+            <div class="pos-abs bottom0 col-center w100p">
+                {{page-bar pageData=model.articleList.pagebar turnPage=(action 'turnPage')}}
+            </div>
         </div>
 
         <div class="art-list-right col-sm-6 color-overlay col-sm-offset-1">
-
-
+            <div class="show-art-text color-white text-bold">
+                {{{selectedArtText}}}
+            </div>
         </div>
     </div>
 

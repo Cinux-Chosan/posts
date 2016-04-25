@@ -7,6 +7,20 @@ export default Ember.Controller.extend({
     isOther : Ember.computed.equal('currentTab', 'other'),
     actions: {
         goto(someWhere) {
+            if(this.get('currentTab') === someWhere) {
+                return;
+            }
+            switch (someWhere) {
+                case "list":
+                    someWhere = "article.art_list";
+                    break;
+                case "pub":
+                    someWhere = "article.pub";
+                    break;
+                case "other":           //第三个路由
+                    someWhere = "index";
+                    break;
+            }
             let $left = $('.art-list-body .art-list-left'),
                 $right = $('.art-list-body .art-list-right');
 
@@ -16,7 +30,6 @@ export default Ember.Controller.extend({
             });
         */
 
-            console.log('DDD');
             window.animateCss([$left, $right], ['fadeOutRight', 'fadeOutLeft'], true).then(() => {
                 this.transitionToRoute(someWhere);
             });

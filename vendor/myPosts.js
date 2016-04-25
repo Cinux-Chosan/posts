@@ -125,7 +125,16 @@ window.myGetJson = function(url, data, type) {
     return new Ember.RSVP.Promise(function (resolve, reject) {
         promise.done(resolve).fail(reject);
     });
-}
+},
+
+
+    window.myEncode = function(param){
+        return encodeURIComponent(param);
+    },
+
+    window.myDecode = function(params) {
+        return decodeURIComponent(params);
+    }
 
 
 /*
