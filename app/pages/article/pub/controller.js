@@ -6,7 +6,13 @@ export default Ember.Controller.extend({
 
         didInsert() {
             this.get('articleController').set('currentTab', 'pub');
-            window.animateCss($('.page-art-pub'), 'zoomIn');
+            window.animateCss($('.page-art-pub'), 'zoomIn').then(function() {
+                return window.animateCss($('.form-submit'), 'lightSpeedIn');
+            }).then(function(data) {
+                window.animateCss(data, 'flipOutY').then(function(data) {
+                    $('.form-btn-group').addClass('hover-show-parent');
+                });
+            });
         },
         willDestroy() {
 

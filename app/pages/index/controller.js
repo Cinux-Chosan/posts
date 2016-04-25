@@ -4,7 +4,9 @@ export default Ember.Controller.extend({
 
     actions: {
         didInsert() {
-            let $navbar = $('ul.nav.navbar-nav');
+            let $navbar = $('ul.nav.navbar-nav'),
+                $body = $('body');
+            $body.removeClass('hidden');
             window.animateCss($navbar, 'swing');
         },
 

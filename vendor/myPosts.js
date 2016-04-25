@@ -2,6 +2,8 @@
 
 let isDev = true;
 
+window.isDev = isDev;
+
 let postsConfig = {
     API_HOST: location.origin || 'http://www.1235.ac.cn'    //location.origin指向url中的域名
 };

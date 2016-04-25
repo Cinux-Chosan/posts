@@ -19,7 +19,7 @@ module.exports = function(defaults) {
         },
         minifyCSS: {
             //压缩css
-            enabled: false
+            enabled: true
         },
 
         lessOptions: {

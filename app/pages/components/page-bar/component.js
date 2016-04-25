@@ -8,7 +8,7 @@ export default Ember.Component.extend({
 
     pageData: null,  // {page: 当前页, total: 总条目, limit: 每一页的条数}
     totalPage: Ember.computed('pageData', function () {
-        return Math.ceil(this.get('pageData').total / this.get('pageData').limit);
+        return Math.ceil( (this.get('pageData').total || 0) / (this.get('pageData').limit || 10));
     }),
     pages: Ember.computed('totalPage', function () {
         let pageArr = [],

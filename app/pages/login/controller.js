@@ -3,8 +3,9 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
     actions: {
         login(){
-            let $userAccount = $('#userName').val().trim();
-            let $userPwd = $('#userPwd').val().trim();
+            let self = this,
+                $userAccount = $('#userName').val().trim(),
+                $userPwd = $('#userPwd').val().trim();
             if($userAccount && $userPwd) {
                 window.myGetJson('posts/login.php',{
                     userName: $userAccount,
@@ -12,7 +13,11 @@ export default Ember.Controller.extend({
                 }, 'post').then(data => {
                     if(data.status) {
                         window.tip('登陆成功，即将跳转');
-                        Ember.run.later(() => this.transitionToRoute('index'), 1000);
+                        Ember.run.later(() => {
+                            window.animateCss($('.login-container'), 'rollOut', true).then(function() {
+                                self.transitionToRoute('index');
+                            });
+                        }, 1000);
                     }
                 });
             } else {
@@ -21,9 +26,19 @@ export default Ember.Controller.extend({
         },
         didInsert() {
             let $logo = $('.login-logo');
-            window.animateCss($logo,'slideInDown').then(function(data) {
+           /* window.animateCss($logo,'slideInDown').then(function(data) {
+                window.animateCss(data, 'rubberBand');
+            });*/
+            $logo.addClass('hidden');
+            window.animateCss($('.login-container'),'rollIn').then(function() {
+                return window.animateCss($logo, 'slideInDown');
+            }).then(function(data){
                 window.animateCss(data, 'rubberBand');
             });
+        },
+
+        willDestroy() {
+            window.animateCss($('.login-container'), 'rollOut');
         }
 
     }

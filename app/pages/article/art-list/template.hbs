@@ -4,7 +4,7 @@
             <ul class="list-group opacity9">
 
                 {{#each model.articleList.list as |item index|}}
-                    <a href="#" class="list-group-item list-group-item-success" {{action 'showText' index}}>
+                    <a href="#" class="list-group-item list-group-item-success text-overflow-ellipsis" {{action 'showText' index}}>
                         {{{item.article_title}}}
                     </a>
                 {{/each}}
@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        <div class="art-list-right col-sm-6 color-overlay col-sm-offset-1">
+        <div class="art-list-right col-sm-6 color-overlay col-sm-offset-1 overflow-auto">
             <div class="show-art-text color-white text-bold">
                 {{{selectedArtText}}}
             </div>

@@ -233,3 +233,30 @@ html, body, body > .ember-view{
 .overflow-hidden{
   overflow: hidden !important;
 }
+
+.hover-show-parent{
+  *{
+    opacity: 0 !important;
+    transition: opacity 1s;
+    &:hover{
+      opacity: 1 !important;
+    }
+  }
+
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.overflow-scroll{
+  overflow: scroll !important;
+}
+
+.overflow-auto{
+  overflow: auto !important;
+}
+
+.text-overflow-ellipsis{
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
