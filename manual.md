@@ -148,3 +148,8 @@
 >> alias nginx="/usr/local/nginx/sbin/nginx"
 
 >> nginx -s reload
+
+
+
+## 自动添加CSS前缀插件：  autoprefixer
+> [链接](https://www.npmjs.com/package/ember-cli-autoprefixer)

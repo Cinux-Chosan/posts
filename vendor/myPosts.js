@@ -1,14 +1,14 @@
 
 
-let isDev = true;
+var isDev = true;
 
 window.isDev = isDev;
 
-let postsConfig = {
+var postsConfig = {
     API_HOST: location.origin || 'http://www.1235.ac.cn'    //location.origin指向url中的域名
 };
 
-let postsDevConfig = {
+var postsDevConfig = {
     API_HOST: 'http://localhost:8080'
 }
 
@@ -47,15 +47,15 @@ window.tip = function(msg, type, stayTime, sticky, closeCallback, closeText) {
 
 
 window.animateCss = function (selector, animationName, isEnd) {
-    let isArray = $.isArray(selector),
+    var isArray = $.isArray(selector),
         $selector = isArray ? selector : $(selector);
     return new Ember.RSVP.Promise(function (resolve, reject) {
 
-        let  animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        var  animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
         function rm(i, count, total) {
-            let fuc = function() {
-                let self = $(this);
+            var fuc = function() {
+                var self = $(this);
                 self.removeClass('animated ' + animationName[i]);
                 if(isEnd) {
                     self.addClass('hidden');
@@ -71,10 +71,10 @@ window.animateCss = function (selector, animationName, isEnd) {
             return fuc;
         }
         if(isArray) {
-            let count = 0,
+            var count = 0,
                 total = $selector.length;
-            for(let i = 0; i < total; ++i) {
-                let item = $selector[i];
+            for(var i = 0; i < total; ++i) {
+                var item = $selector[i];
                 if(item.length) {
                     item.removeClass('hidden').addClass('animated ' + animationName[i]).one(animationEnd, rm(i, ++count, total));  //此处使用匿名函数会得到JSHint提示： don't make functions within a loop
                 } else {
@@ -88,7 +88,7 @@ window.animateCss = function (selector, animationName, isEnd) {
                 if(!$selector.length) {
                     resolve($selector);
                 }
-                let self = $(this);
+                var self = $(this);
                 self.removeClass('animated ' + animationName);
                 if(isEnd) {
                     self.addClass('hidden');
@@ -105,7 +105,7 @@ window.animateCss = function (selector, animationName, isEnd) {
 
 
 window.myGetJson = function(url, data, type) {
-    let config = isDev ? postsDevConfig : postsConfig;
+    var config = isDev ? postsDevConfig : postsConfig;
     url = (url.indexOf("http://") !== 0) ? config.API_HOST + '/' + url : url;
     type = type || 'GET';
     type = type.toUpperCase();
@@ -116,7 +116,7 @@ window.myGetJson = function(url, data, type) {
         return data;
     }
     Ember.$.ajaxSetup({xhrFields: {withCredentials: true}});  //withCredentials为false允许跨域
-    let promise = Ember.$.ajax({
+    var promise = Ember.$.ajax({
         cache: false,
         type: type,
         url: url,

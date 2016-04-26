@@ -5,6 +5,31 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 module.exports = function(defaults) {
     var app = new EmberApp(defaults, {
         // Add options here
+
+      /*  babel:{
+            includePolyfill: true,
+            comments: false,
+            only: [
+      /!*          './components/!*.js',
+                './pages/!**!/!*.js',
+                './mixins/!*.js',
+                './models/!*.js',
+            //    './transitions/!*.js',
+            //    './transitions.js',
+                './helpers/!*.js',
+                './!*.js'*!/
+            ]
+
+
+        },*/
+
+
+        autoprefixer: {
+            sourcemap: false,
+            cascade: false,
+            browsers: ["> 10%", "last 2 versions"]
+        },
+
         fingerprint: {
             exclude:['public/xhEditor/'],     // exclude 中的文件不会被加上指纹，xhEditor在加载过后再加载自己的文件，文件被编码在js内部，加了指纹过后会找不到对应文件
             //prepend: 'http://www.1235.ac.cn'   // prepend 会使得 http://www.1235.ac.cn 被加在编译文件的文件名最前面
