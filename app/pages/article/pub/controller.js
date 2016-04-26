@@ -9,8 +9,10 @@ export default Ember.Controller.extend({
             window.animateCss($('.page-art-pub'), 'zoomIn').then(function() {
                 return window.animateCss($('.form-submit'), 'lightSpeedIn');
             }).then(function(data) {
-                window.animateCss(data, 'flipOutY').then(function() {
-                    $('.form-btn-group').addClass('hover-show-parent');
+                window.animateCss(data, 'flipOutY').then(function(data) {
+                    window.animateCss(data, 'flipInY').then(function() {
+                        $('.form-btn-group').addClass('hover-show-parent');
+                    });
                 });
             });
         },
