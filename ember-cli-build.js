@@ -40,7 +40,7 @@ module.exports = function(defaults) {
         },
         minifyJS: {
             //压缩js
-            enabled: false
+            enabled: true
         },
         minifyCSS: {
             //压缩css
