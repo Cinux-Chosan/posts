@@ -12,13 +12,16 @@ export default Ember.Route.extend({
 
 
     model(params) {
-        let art_id = params.art_id ? parseInt(params.art_id) : 0;
+        let validId = parseInt(params.art_id),
+            art_id = validId ? validId : 0;
+        this.set('art_id', art_id);
         return this.requestArtWithId(art_id);
     },
 
 
     setupController(controller, model){
         controller.set('model', model);
+        controller.set('art_id', this.get('art_id'));
     }
 
 });

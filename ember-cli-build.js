@@ -24,6 +24,8 @@ module.exports = function(defaults) {
         },*/
 
 
+
+
         autoprefixer: {
             sourcemap: false,
             cascade: false,
@@ -79,6 +81,9 @@ module.exports = function(defaults) {
     app.import('vendor/lodash/lodash/dist/lodash.js');
     app.import('vendor/myPosts.js');
     app.import('vendor/jquery-toastmessage-plugin/src/main/javascript/jquery.toastmessage.js');
+    app.import('bower_components/headroom.js/dist/jQuery.headroom.min.js');
+    app.import('bower_components/headroom.js/dist/headroom.min.js');
+
 
     //css
 
@@ -94,7 +99,9 @@ module.exports = function(defaults) {
     app.import('vendor/Font-Awesome-3.2.1/font/fontawesome-webfont.ttf', {
         destDir: 'fonts'
     });
-
+    app.import('vendor/Font-Awesome-3.2.1/font/fontawesome-webfont.woff', {
+        destDir: 'fonts'
+    });
 
     /*********************************************************************
     使用app.import()引入的其他资源(less，ttf 等)将会被原封不动的装入dist/目录中
