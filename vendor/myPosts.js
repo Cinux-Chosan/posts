@@ -1,6 +1,6 @@
 
 
-var isDev = false;
+var isDev = true;
 
 window.isDev = isDev;
 

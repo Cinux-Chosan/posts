@@ -40,11 +40,11 @@ module.exports = function(defaults) {
         },
         minifyJS: {
             //压缩js
-            enabled: true
+            enabled: false
         },
         minifyCSS: {
             //压缩css
-            enabled: true
+            enabled: false
         },
 
         lessOptions: {
