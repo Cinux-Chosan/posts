@@ -10,12 +10,22 @@ export default Ember.Route.extend({
         });
     },
 
+    requestCommentsWithId(art_id) {
+        return window.myGetJson('posts/getComments.php', {art_id:art_id}).then(function(data) {
+            if(data.status) {
+                return data.list;
+            }
+        });
+    },
 
     model(params) {
         let validId = parseInt(params.art_id),
             art_id = validId ? validId : 0;
         this.set('art_id', art_id);
-        return this.requestArtWithId(art_id);
+        return Ember.RSVP.hash({
+            art_info: this.requestArtWithId(art_id),
+            art_comments: this.requestCommentsWithId(art_id)
+        });
     },
 
 

@@ -37,6 +37,10 @@ export default Ember.Controller.extend({
             } else {
                 window.tip('评论类容必不可少！', 'warning');
             }
+        },
+
+        addPraise(){
+
         }
 
     }

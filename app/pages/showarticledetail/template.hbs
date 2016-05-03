@@ -16,19 +16,40 @@
         </div>
     </header>
     <div class="col-sm-12 text-center border-bottom-1px-ccc mt50px">
-        <h1>{{model.article_title}}</h1>
-        <div class="add-comments">
-            <i class="icon icon-font icon-thumbs-up"></i>
-        </div>
+        <h1>{{model.art_info.article_title}}</h1>
     </div>
 
     <div class="col-sm-10 col-sm-offset-1 p20px word-break border-bottom-1px-ccc">
-        {{{model.article_text}}}
-
+        {{{model.art_info.article_text}}}
     </div>
 
+    <div class="col-sm-10 col-sm-offset-1 p20px border-bottom-1px-ccc">
+        <i class="icon icon-thumbs-up icon-large cur-pointer pull-right" {{action 'addPraise'}}></i>
+    </div>
 
-    <form class="col-sm-8 col-sm-offset-2 pt60px">
+    {{#if model.art_comments.length}}
+    <div class="col-sm-10 col-sm-offset-1 p20px word-break border-bottom-1px-ccc">
+        <div class="border-bottom-1px-ccc text-bold">
+            Comments:
+        </div>
+        <ul class="list-style-none margin0 padding0">
+            {{#each model.art_comments as |item|}}
+                <li class="comments-list-item p20px">
+                    <p>{{item.comment_text}}</p>
+                    <span class="pull-right inline-block"><span class="text-bold">Written by: </span>{{if item.name item.name '不愿留名的小伙'}}</span>
+                    <div class="clearfix"></div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+    {{/if}}
+    <div class="col-sm-10 col-sm-offset-1 p20px word-break">
+        <div class="border-bottom-1px-rgb32 text-bold label-comments">
+           Add Your Comments:
+        </div>
+    </div>
+
+    <form class="col-sm-8 col-sm-offset-2">
         <div class="form-group">
             <label for="InputName">Name</label>
             <input type="email" class="form-control" id="InputName" placeholder="Name">
@@ -42,7 +63,7 @@
             <textarea class="form-control h200px" id="InputComment"></textarea>
         </div>
         <div class="form-group">
-            <button class="btn btn-default pull-right" {{action 'submit'}}>Submit</button>
+            <button class="btn btn-default pull-right" {{action 'submit'}}><i class="icon icon-comments icon-large"></i></button>
         </div>
     </form>
 

@@ -1,35 +1,36 @@
-<div class="login-container">
-    <div class="login-header">
-        <div class="w100p pos-abs bottom0">
-            <div class="login-logo"></div>
+<div class="h100p overflow-hidden">
+    <div class="login-container">
+        <div class="login-header">
+            <div class="w100p pos-abs bottom0">
+                <div class="login-logo"></div>
+            </div>
+        </div>
+
+        <div class="login-body">
+            <div class="container mt20px">
+                <form class="form-horizontal maxW400px margin-auto" method="post" action="login.php" onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="userName" class="control-label col-sm-5">Account:</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="userName" placeholder="account"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPwd" class="control-label col-sm-5">Password:</label>
+                        <div class="col-sm-7">
+                            <input type="password" class="form-control" id="userPwd" placeholder="password"/>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right text-bold" {{action 'login'}}>Sign in</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="login-footer">
+
         </div>
     </div>
-
-    <div class="login-body">
-        <div class="container mt20px">
-            <form class="form-horizontal maxW400px margin-auto" method="post" action="login.php" onsubmit="return false;">
-                <div class="form-group">
-                    <label for="userName" class="control-label col-sm-5">Account:</label>
-                    <div class="col-sm-7">
-                        <input type="text" class="form-control" id="userName" placeholder="account"/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="userPwd" class="control-label col-sm-5">Password:</label>
-                    <div class="col-sm-7">
-                        <input type="password" class="form-control" id="userPwd" placeholder="password"/>
-                    </div>
-                </div>
-                <button type="submit" class="btn btn-primary pull-right text-bold" {{action 'login'}}>Sign in</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="login-footer">
-
-    </div>
-</div>
 {{!modal-tip modalTitle="Warning" modalText="Wrong account or password"}}
-
+</div>
 {{view-like didInsertFunc=(action 'didInsert')}}
 {{outlet}}
