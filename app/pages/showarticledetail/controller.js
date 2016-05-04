@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
+    showAddPraise: true,
+
     actions: {
         didInsertFunc() {
             let $html = $('html');
@@ -20,18 +23,21 @@ export default Ember.Controller.extend({
         willDestroyFunc(){},
 
         submit(){
-            let email = $('#InputEmail1').val().trim(),
-                name =  $('#InputName').val().trim(),
-                comments = $('#InputComment').val().trim();
-            if(comments) {
+            let input_email = $('#InputEmail1'),
+                input_name =  $('#InputName'),
+                input_comments = $('#InputComment');
+            if(input_comments.val().trim()) {
                 window.myGetJson('posts/addComments.php', {
-                    email: email,
-                    name: name,
-                    comments: comments,
+                    email: input_email.val().trim(),
+                    name: input_name.val().trim(),
+                    comments: input_comments.val().trim(),
                     art_id:this.get('art_id')
                 }, 'post').then(function(data) {
                     if(data.status) {
                         window.tip('感谢您的评论！');
+                        input_email.val('');
+                        input_name.val('');
+                        input_comments.val('');
                     }
                 });
             } else {
@@ -40,6 +46,16 @@ export default Ember.Controller.extend({
         },
 
         addPraise(){
+            let self = this,
+                $addPraise = $('.add-praise');
+            window.myGetJson('posts/addPraise.php', {art_id: this.get('art_id')}).then(function(data) {
+                if(data.status) {
+                    window.tip('感谢点赞！');
+                    window.animateCss($addPraise, 'slideOutUp', true).then( data => {
+						self.set('showAddPraise', false);
+						});
+                }
+            });
 
         }
 
