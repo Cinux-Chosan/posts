@@ -3,11 +3,15 @@
 <nav class="margin-auto text-center">
     <ul class="pagination pagination-sm">
 
-        <li><a href="#" aria-label="Previous" {{action 'prev'}}><span aria-hidden="true">«</span></a></li>
+        <li><a href="#" aria-label="Previous" {{action 'prev'}}><span aria-hidden="true">&laquo;</span></a></li>
+
         {{#each pages as |page index|}}
-            <li><a href="#" class={{if (is-eq index currentPage) 'bg-ccc'}} {{action 'turnToPage' index}}>{{add index 1}}</a></li>
+            <li>
+                <a href="#" class={{if (is-eq index currentPage) 'bg-ccc'}} {{action 'turnToPage' index}}>{{add index 1}}</a>
+            </li>
         {{/each}}
-        <li><a href="#" aria-label="Next" {{action 'next'}}><span aria-hidden="true">»</span></a></li>
+
+        <li><a href="#" aria-label="Next" {{action 'next'}}><span aria-hidden="true">&raquo;</span></a></li>
 
     </ul>
 </nav>

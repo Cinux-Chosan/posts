@@ -23,7 +23,8 @@ export default Ember.Controller.extend({
         willDestroyFunc(){},
 
         submit(){
-            let input_email = $('#InputEmail1'),
+            let self = this,
+                input_email = $('#InputEmail1'),
                 input_name =  $('#InputName'),
                 input_comments = $('#InputComment');
             if(input_comments.val().trim()) {
@@ -38,6 +39,11 @@ export default Ember.Controller.extend({
                         input_email.val('');
                         input_name.val('');
                         input_comments.val('');
+                        return window.myGetJson('posts/getComments.php', {art_id:self.get('art_id')}).then(function(data) {
+                            if(data.status) {
+                                self.set('model.art_comments', data.list);
+                            }
+                        });
                     }
                 });
             } else {
@@ -51,7 +57,7 @@ export default Ember.Controller.extend({
             window.myGetJson('posts/addPraise.php', {art_id: this.get('art_id')}).then(function(data) {
                 if(data.status) {
                     window.tip('感谢点赞！');
-                    window.animateCss($addPraise, 'slideOutUp', true).then( data => {
+                    window.animateCss($addPraise, 'slideOutUp', true).then( () => {
 						self.set('showAddPraise', false);
 						});
                 }

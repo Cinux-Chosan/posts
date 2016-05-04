@@ -6,6 +6,8 @@ export default Ember.Component.extend({
         return this.get('pageData').page || 0;
     }),
 
+    maxLength: 5,
+
     pageData: null,  // {page: 当前页, total: 总条目, limit: 每一页的条数}
     totalPage: Ember.computed('pageData', function () {
         return Math.ceil( (this.get('pageData').total || 0) / (this.get('pageData').limit || 10));
@@ -18,6 +20,7 @@ export default Ember.Component.extend({
         }
         return pageArr;
     }),
+
     action: 'turnPage',
 
     actions:　{
